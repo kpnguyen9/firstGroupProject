@@ -28,11 +28,14 @@
     <div id="park-form">
         <form action="/action_page.php">
             <label for="fname">Park Location:</label>
-            <input type="text" id="fname" name="fname" placeholder="Enter park name"><br><br>
-            <button type="button" class="btn btn-outline-success" id="submit-button">Go!</button>
+            <input type="text" id="parkNameInput" placeholder="Enter park name"><br><br>
+            <button type="button" class="btn btn-outline-success" id="submitButton">Go!</button>
         </form>
     </div>
-
+    <br>
+    <div id="parkInfo">
+        <ul id="parkList"></ul>
+    </div>
     <div class="weather-div">Weather Forecast:</div>
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
