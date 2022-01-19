@@ -14,23 +14,27 @@ const parkInput = document.getElementById("parkNameInput");
 //_________________________________________________________________
 
 const logData = (data) => {
-  //   console.dir(data);
+  console.dir(data);
   return data;
 };
 
 const extractParkData = (data) => {
-  //   console.dir(data.data);
+  console.dir(data.data);
   return data.data;
 };
 
 const printParkName = (parks) => {
   parks.map((park) => {
     const createLi = document.createElement("li");
+    createLi.classList.add("parkListItem");
 
     const createButton = document.createElement("BUTTON");
     createButton.innerHTML = `${park.fullName}`;
     createButton.classList.add("parkButton");
     createLi.appendChild(createButton);
+    createButton.id = park.parkCode;
+    createButton.setAttribute("longitude", `${park.longitude}`);
+    createButton.setAttribute("latitude", `${park.latitude}`);
 
     const parkList = document.getElementById("parkList");
     parkList.appendChild(createLi);
@@ -57,11 +61,43 @@ submitButton.addEventListener("click", () => {
 
   fetch(parkURL)
     .then((response) => response.json())
+    .then(logData)
     .then(extractParkData)
     .catch(reportError)
     .then(printParkName);
 });
 
 //next...extract the parkCode and fetch campground based off parkCode
+
+const printCampsites = (camps) => {
+  camps.map((camp) => {
+    console.log(camp.name);
+
+    const createLi = document.createElement("li");
+    createLi.innerHTML = `${camp.name}`;
+    parkList.appendChild(createLi);
+
+    const createP = document.createElement("p");
+  });
+};
+
+parkInfo.addEventListener("click", (event) => {
+  // console.log("parkInfo div was clicked");
+
+  if (event.target.className.includes("parkButton")) {
+    // console.log("parkButton was clicked");
+
+    let parkCode = event.target.id;
+    // console.log(parkCode);
+
+    let parkURL = `https://developer.nps.gov/api/v1/campgrounds?parkCode=${parkCode}&api_key=${campKey}`;
+
+    fetch(parkURL)
+      .then((response) => response.json())
+      .then(logData)
+      .then(extractParkData)
+      .then(printCampsites);
+  }
+});
 
 //also...extract latLong and fetch weather forecast based off latLong
