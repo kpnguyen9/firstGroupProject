@@ -41,9 +41,7 @@ const printParkName = (parks) => {
 };
 
 const reportError = () => {
-  console.log(
-    "Error with fetching parks based on user what the user submitted"
-  );
+  console.log("Error with fetching parks based on what the user submitted");
 };
 
 //click event for submit button after user inputs park name
@@ -63,6 +61,8 @@ submitButton.addEventListener("click", () => {
     .then(extractParkData)
     .catch(reportError)
     .then(printParkName);
+
+  parkInput.value = "";
 });
 
 const printCampsites = (camps) => {
@@ -87,11 +87,12 @@ const extractCurrentWeather = (data) => {
 const printCurrentWeather = (current) => {
   const weatherContainer = document.getElementById("weatherContainer");
 
-  const createImg = document.createElement("img");
-  createImg.setAttribute = ("src", `${current.condition.icon}`);
-  weatherContainer.appendChild(createImg);
+  let newLink = "https:" + `${current.condition.icon}`;
+  console.log(newLink);
 
-  let currentWeather = `<ul>
+  let currentWeather = `
+  <img src=${newLink} alt="conditionIcon">
+  <ul>
   <li>Today's weather was last updated ${current.last_updated}</li>
   <li>Condition: ${current.condition.text}</li>
   <li>Temperature: ${current.temp_f}F</li>
