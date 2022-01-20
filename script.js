@@ -14,12 +14,12 @@ const parkInput = document.getElementById("parkNameInput");
 //_________________________________________________________________
 
 const logData = (data) => {
-  console.dir(data);
+  // console.dir(data);
   return data;
 };
 
 const extractParkData = (data) => {
-  console.dir(data.data);
+  // console.dir(data.data);
   return data.data;
 };
 
@@ -33,8 +33,7 @@ const printParkName = (parks) => {
     createButton.classList.add("parkButton");
     createLi.appendChild(createButton);
     createButton.id = park.parkCode;
-    createButton.setAttribute("longitude", `${park.longitude}`);
-    createButton.setAttribute("latitude", `${park.latitude}`);
+    createButton.setAttribute("name", `${park.latitude},${park.longitude}`);
 
     const parkList = document.getElementById("parkList");
     parkList.appendChild(createLi);
@@ -70,14 +69,16 @@ submitButton.addEventListener("click", () => {
 //next...extract the parkCode and fetch campground based off parkCode
 
 const printCampsites = (camps) => {
+  const campContainer = document.getElementById("campContainer");
+  campContainer.innerHTML = "";
+
   camps.map((camp) => {
-    console.log(camp.name);
+    // console.log(camp.name);
 
     const createLi = document.createElement("li");
     createLi.innerHTML = `${camp.name}`;
-    parkList.appendChild(createLi);
 
-    const createP = document.createElement("p");
+    campContainer.appendChild(createLi);
   });
 };
 
@@ -89,14 +90,27 @@ parkInfo.addEventListener("click", (event) => {
 
     let parkCode = event.target.id;
     // console.log(parkCode);
+    let latLong = `${event.target.name}`;
+    // console.log(latLong);
 
     let parkURL = `https://developer.nps.gov/api/v1/campgrounds?parkCode=${parkCode}&api_key=${campKey}`;
+
+    let weatherCurrentURL = `http://api.weatherapi.com/v1/current.json?key=${weatherKey}&q=${latLong}&aqi=no`;
+
+    let weatherForecastURL = `http://api.weatherapi.com/v1/forecast.json?key=${weatherKey}&q=${latLong}&days=7&aqi=no&alerts=no`;
+
+    console.log(weatherCurrentURL);
+    console.log(weatherForecastURL);
 
     fetch(parkURL)
       .then((response) => response.json())
       .then(logData)
       .then(extractParkData)
       .then(printCampsites);
+
+    fetch(weatherForecastURL)
+      .then((response) => response.json())
+      .then((data) => console.log(data));
   }
 });
 
