@@ -1,5 +1,5 @@
 .container-fluid {
-    background-color: green;
+  background-color: green;
 }
 
 body {
@@ -36,18 +36,18 @@ h1 {
     color: white;
 }
 
-.navbar-light .navbar-brand{
-    color: white;
-    font-weight: bold;
+.navbar-light .navbar-brand {
+  color: white;
+  font-weight: bold;
 }
 
 h3 {
-    margin-top:20px;
-    margin-bottom: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 park-form > div > label {
-    font-family: 'Arial Narrow', Arial, sans-serif;
+  font-family: "Arial Narrow", Arial, sans-serif;
 }
 
 div.weather-div {
