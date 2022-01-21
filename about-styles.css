@@ -1,10 +1,58 @@
-.container-fluid {
+img {
+    border-radius: 100px;
+}
+
+.grid-class {
+    display: flex;
+}
+
+.container {
+    position: relative;
+    width: 400px;
+    font-family: Lobster;
+  }
+  
+  .image {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #29dc8f;
+  }
+  
+  .container:hover .overlay {
+    opacity: 1;
+    border-radius: 100px;
+  }
+  
+  .lego_image {
+    color: white;
+    font-size: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  .container-fluid {
     background-color: green;
 }
 
 body {
     background-image: url("images/campimage.jpg");
-    height: 100%;
     background-attachment: absolute;
     background-position: center center;
     background-repeat: no-repeat;
