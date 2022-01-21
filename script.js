@@ -14,7 +14,7 @@ const parkInput = document.getElementById("parkNameInput");
 //_________________________________________________________________
 
 const logData = (data) => {
-  // console.dir(data);
+  console.dir(data);
   return data;
 };
 
@@ -25,18 +25,21 @@ const extractParkData = (data) => {
 
 const printParkName = (parks) => {
   parks.map((park) => {
-    const createLi = document.createElement("li");
-    createLi.classList.add("parkListItem");
+    const parkImage = park.images[0].url;
 
-    const createButton = document.createElement("BUTTON");
-    createButton.innerHTML = `${park.fullName}`;
-    createButton.classList.add("parkButton");
-    createLi.appendChild(createButton);
-    createButton.id = park.parkCode;
-    createButton.setAttribute("name", `${park.latitude},${park.longitude}`);
+    const parkCard = `
+    <img class="card-img-top" src=${parkImage} alt="Card image cap">
+    <div class="card-body">
+    <a href="#weatherContainer" class="btn btn-primary parkButton" id="${park.parkCode}" name="${park.latitude},${park.longitude}">${park.fullName}</a>
+    </div>
+    </div>`;
 
-    const parkList = document.getElementById("parkList");
-    parkList.appendChild(createLi);
+    const parkInfo = document.getElementById("parkInfo");
+    const createDiv = document.createElement("div");
+    createDiv.classList.add("card");
+    createDiv.style.width = "18rem";
+    createDiv.innerHTML = parkCard;
+    parkInfo.appendChild(createDiv);
   });
 };
 
@@ -49,8 +52,8 @@ const reportError = () => {
 const submitButton = document.getElementById("submitButton");
 
 submitButton.addEventListener("click", () => {
-  const parkList = document.getElementById("parkList");
-  parkList.innerHTML = "";
+  const parkInfo = document.getElementById("parkInfo");
+  parkInfo.innerHTML = "";
 
   let parkName = parkInput.value;
   let parkURL = `https://developer.nps.gov/api/v1/parks?q=${parkName}&api_key=${campKey}`;
@@ -80,7 +83,7 @@ const printCampsites = (camps) => {
 };
 
 const extractCurrentWeather = (data) => {
-  console.dir(data.current);
+  // console.dir(data.current);
   return data.current;
 };
 
@@ -88,7 +91,7 @@ const printCurrentWeather = (current) => {
   const weatherContainer = document.getElementById("weatherContainer");
 
   let newLink = "https:" + `${current.condition.icon}`;
-  console.log(newLink);
+  // console.log(newLink);
 
   let currentWeather = `
   <img src=${newLink} alt="conditionIcon">
@@ -128,12 +131,13 @@ parkInfo.addEventListener("click", (event) => {
 
     fetch(parkURL)
       .then((response) => response.json())
-      .then(logData)
+      // .then(logData)
       .then(extractParkData)
       .then(printCampsites);
 
     fetch(weatherForecastURL)
       .then((response) => response.json())
+      // .then(logData)
       .then(extractCurrentWeather)
       .then(printCurrentWeather);
   }
