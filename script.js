@@ -37,6 +37,7 @@ const printParkName = (parks) => {
     const parkInfo = document.getElementById("parkInfo");
     const createDiv = document.createElement("div");
     createDiv.classList.add("card");
+    createDiv.classList.add("parkCard");
     createDiv.style.width = "18rem";
     createDiv.style.height = "18rem";
     createDiv.innerHTML = parkCard;

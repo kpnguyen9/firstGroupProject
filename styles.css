@@ -2,17 +2,26 @@
   background-color: green;
 }
 
-body {
-  background-image: url("images/campimage.jpg");
+body,
+html {
   height: 100%;
+}
+
+#page-container {
+  background-image: url("https://wallpaperaccess.com/full/5856.jpg");
   background-attachment: absolute;
-  background-position: center center;
+  /* Full height */
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow-y: scroll;
+  /* Center and scale the image nicely */
+  background-position: center;
   background-repeat: no-repeat;
-  background-color: #cccccc;
   background-size: cover;
 }
 
-@media (max-width: 480px) {
+/* @media (max-width: 480px) {
   body {
     background-image: url("images/campimage.jpg");
   }
@@ -28,7 +37,7 @@ body {
   body {
     background-image: url("images/campimage.jpg");
   }
-}
+} */
 
 h1 {
   text-align: center;
@@ -36,18 +45,55 @@ h1 {
   color: white;
 }
 
-.navbar-light .navbar-brand {
-  color: white;
-  font-weight: bold;
-}
-
 h3 {
   margin-top: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
+  text-align: center;
+  color: #edba57;
+  font-size: 35px;
+  font-family: Lobster;
 }
 
 park-form > div > label {
   font-family: "Arial Narrow", Arial, sans-serif;
+}
+
+.nav-link {
+  /* color: #1d6536; */
+  color: #edba57;
+  text-align: right;
+  font-size: 30px;
+  font-weight: bold;
+  font-family: Architects Daughter;
+}
+
+label {
+  color: white;
+}
+
+form {
+  width: 400px;
+  margin: auto;
+  padding: 0 43px;
+  text-align: center;
+}
+
+#parkInfo {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.parkCard {
+  margin-right: 25px;
+  margin-bottom: 25px;
+}
+
+/* #campContainer {
+  color: white;
+} */
+
+li {
+  color: rgb(184, 61, 61);
 }
 
 div.weather-div {
