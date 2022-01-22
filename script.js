@@ -30,7 +30,7 @@ const printParkName = (parks) => {
     const parkCard = `
     <img class="card-img-top" src=${parkImage} alt="Card image cap">
     <div class="card-body">
-    <a href="#weatherContainer" class="btn btn-primary parkButton" id="${park.parkCode}" name="${park.latitude},${park.longitude}">${park.fullName}</a>
+    <a class="btn btn-primary parkButton" id="${park.parkCode}" name="${park.latitude},${park.longitude}">${park.fullName}</a>
     </div>
     </div>`;
 
@@ -42,6 +42,9 @@ const printParkName = (parks) => {
     createDiv.style.height = "18rem";
     createDiv.innerHTML = parkCard;
     parkInfo.appendChild(createDiv);
+
+    const scrollToParkCards = document.getElementById("parkInfo");
+    scrollToParkCards.scrollIntoView();
   });
 };
 
@@ -99,6 +102,9 @@ const printCampsites = (camps) => {
     createDiv.innerHTML = campCard;
 
     campContainer.appendChild(createDiv);
+
+    const scrollToCampCards = document.getElementById("weatherContainer");
+    scrollToCampCards.scrollIntoView();
   });
 };
 
@@ -165,33 +171,3 @@ parkInfo.addEventListener("click", (event) => {
       .then(printCurrentWeather);
   }
 });
-
-// {
-//   "last_updated_epoch": 1642697100,
-//   "last_updated": "2022-01-20 10:45",
-//   "temp_c": -0.5,
-//   "temp_f": 31.1,
-//   "is_day": 1,
-//   "condition": {
-//       "text": "Sunny",
-//       "icon": "//cdn.weatherapi.com/weather/64x64/day/113.png",
-//       "code": 1000
-//   },
-//   "wind_mph": 12.5,
-//   "wind_kph": 20.2,
-//   "wind_degree": 31,
-//   "wind_dir": "NNE",
-//   "pressure_mb": 1031,
-//   "pressure_in": 30.45,
-//   "precip_mm": 0,
-//   "precip_in": 0,
-//   "humidity": 40,
-//   "cloud": 18,
-//   "feelslike_c": -5.9,
-//   "feelslike_f": 21.4,
-//   "vis_km": 10,
-//   "vis_miles": 6,
-//   "uv": 2,
-//   "gust_mph": 17,
-//   "gust_kph": 27.4
-// }
