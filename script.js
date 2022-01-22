@@ -30,7 +30,7 @@ const printParkName = (parks) => {
     const parkCard = `
     <img class="card-img-top" src=${parkImage} alt="Card image cap">
     <div class="card-body">
-    <a href="#weatherContainer" class="btn btn-primary parkButton" id="${park.parkCode}" name="${park.latitude},${park.longitude}">${park.fullName}</a>
+    <a href="#campContainer" class="btn btn-primary parkButton" id="${park.parkCode}" name="${park.latitude},${park.longitude}">${park.fullName}</a>
     </div>
     </div>`;
 
@@ -38,8 +38,9 @@ const printParkName = (parks) => {
     const createDiv = document.createElement("div");
     createDiv.classList.add("card");
     createDiv.classList.add("parkCard");
-    createDiv.style.width = "18rem";
-    createDiv.style.height = "18rem";
+    createDiv.classList.add("col-sm")
+    // createDiv.style.width = "18rem";
+    // createDiv.style.height = "18rem";
     createDiv.innerHTML = parkCard;
     parkInfo.appendChild(createDiv);
   });
