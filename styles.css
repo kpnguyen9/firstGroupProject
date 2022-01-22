@@ -3,37 +3,37 @@
 }
 
 body {
-    background-image: url("images/campimage.jpg");
-    height: 100%;
-    background-attachment: absolute;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-color: #cccccc;
-    background-size: cover;
+  background-image: url("images/campimage.jpg");
+  height: 100%;
+  background-attachment: absolute;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: #cccccc;
+  background-size: cover;
 }
 
 @media (max-width: 480px) {
-    body {
-        background-image: url("images/campimage.jpg")
-    }
-}   
+  body {
+    background-image: url("images/campimage.jpg");
+  }
+}
 
 @media (min-width: 481px) and (max-width: 1024px) {
-    body {
-        background-image: url("images/campimage.jpg")
-    }
+  body {
+    background-image: url("images/campimage.jpg");
+  }
 }
 
 @media (min-width: 1025px) {
-    body {
-        background-image: url("images/campimage.jpg")
-    }
+  body {
+    background-image: url("images/campimage.jpg");
+  }
 }
 
 h1 {
-    text-align: center;
-    font-family: Lobster;
-    color: white;
+  text-align: center;
+  font-family: Lobster;
+  color: white;
 }
 
 .navbar-light .navbar-brand {
@@ -51,9 +51,9 @@ park-form > div > label {
 }
 
 div.weather-div {
-    position: absolute;
-    right: 150px;
-    width: 400px;
-    height: 400px;
-    border: 3px solid green;
+  position: absolute;
+  right: 150px;
+  width: 400px;
+  height: 400px;
+  border: 3px solid green;
 }

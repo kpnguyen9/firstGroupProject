@@ -38,6 +38,7 @@ const printParkName = (parks) => {
     const createDiv = document.createElement("div");
     createDiv.classList.add("card");
     createDiv.style.width = "18rem";
+    createDiv.style.height = "18rem";
     createDiv.innerHTML = parkCard;
     parkInfo.appendChild(createDiv);
   });
@@ -60,7 +61,7 @@ submitButton.addEventListener("click", () => {
 
   fetch(parkURL)
     .then((response) => response.json())
-    .then(logData)
+    // .then(logData)
     .then(extractParkData)
     .catch(reportError)
     .then(printParkName);
@@ -75,10 +76,28 @@ const printCampsites = (camps) => {
   camps.map((camp) => {
     // console.log(camp.name);
 
-    const createLi = document.createElement("li");
-    createLi.innerHTML = `${camp.name}`;
+    let campCard = `
+<div class="card-body">
+  <h5 class="card-title">${camp.name}</h5>
+  <p class="card-text">${camp.description}</p>
+</div>
 
-    campContainer.appendChild(createLi);
+<ul class="list-group list-group-flush">
+<li class="list-group-item">Reservation Info: ${camp.reservationInfo}</li>
+</ul>
+
+  <div class="card-body">
+    <a href="${camp.reservationUrl}" class="card-link" target="_blank">Book a Reservation here</a>
+  </div>
+</ul>
+`;
+
+    const createDiv = document.createElement("div");
+    createDiv.classList.add("card");
+    createDiv.style.width = "50rem";
+    createDiv.innerHTML = campCard;
+
+    campContainer.appendChild(createDiv);
   });
 };
 
@@ -94,15 +113,18 @@ const printCurrentWeather = (current) => {
   // console.log(newLink);
 
   let currentWeather = `
-  <img src=${newLink} alt="conditionIcon">
-  <ul>
-  <li>Today's weather was last updated ${current.last_updated}</li>
-  <li>Condition: ${current.condition.text}</li>
-  <li>Temperature: ${current.temp_f}F</li>
-  <li>Wind Speed: ${current.wind_mph}mph</li>
-  <li>Precipitation(inches): ${current.precip_in}</li>
-  <li>Humidity: ${current.humidity}%</li>
-  </ul>`;
+<div class="card" style="width: 18rem;">
+  <div class="card-header">
+  <img src=${newLink} alt="conditionIcon"> ${current.condition.text}
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Today's weather was last updated ${current.last_updated}</li>
+    <li class="list-group-item">Temperature: ${current.temp_f}F</li>
+    <li class="list-group-item">Wind Speed: ${current.wind_mph}mph</li>
+    <li class="list-group-item">Precipitation(inches): ${current.precip_in}</li>
+    <li class="list-group-item">Humidity: ${current.humidity}%</li>
+  </ul>
+</div>`;
 
   weatherContainer.innerHTML = currentWeather;
 };
@@ -131,7 +153,7 @@ parkInfo.addEventListener("click", (event) => {
 
     fetch(parkURL)
       .then((response) => response.json())
-      // .then(logData)
+      .then(logData)
       .then(extractParkData)
       .then(printCampsites);
 
