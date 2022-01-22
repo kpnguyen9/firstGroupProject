@@ -38,8 +38,9 @@ const printParkName = (parks) => {
     const createDiv = document.createElement("div");
     createDiv.classList.add("card");
     createDiv.classList.add("parkCard");
-    createDiv.style.width = "18rem";
-    createDiv.style.height = "18rem";
+    createDiv.classList.add("col-sm")
+    // createDiv.style.width = "18rem";
+    // createDiv.style.height = "18rem";
     createDiv.innerHTML = parkCard;
     parkInfo.appendChild(createDiv);
 
