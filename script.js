@@ -101,14 +101,14 @@ const printCampsites = (camps) => {
 
     const createDiv = document.createElement("div");
     createDiv.classList.add("card");
+    createDiv.classList.add("campCard");
     // createDiv.style.width = "50rem";
     createDiv.innerHTML = campCard;
 
     campContainer.appendChild(createDiv);
-
-    const scrollToCampCards = document.getElementById("weatherContainer");
-    scrollToCampCards.scrollIntoView({ behavior: "smooth" });
   });
+  const scrollToCampCards = document.getElementById("weatherContainer");
+  scrollToCampCards.scrollIntoView({ behavior: "smooth" });
 };
 
 const extractCurrentWeather = (data) => {
