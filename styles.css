@@ -21,6 +21,33 @@ html {
   background-size: cover;
 }
 
+.card {
+  background-color: rgb(185, 188, 184);
+} 
+
+.list-group-item  {
+  background-color: rgb(185, 188, 184);
+} 
+
+.btn-primary {
+  background-color: #32714e;
+  border-color: #32714e;
+}
+
+.btn-primary:hover {
+  background-color: #60c38c;
+}
+
+.btn-secondary {
+  background-color: #32714e;
+  border-color: #32714e;
+}
+
+.btn-secondary:hover {
+  background-color: #60c38c;
+}
+
+
 h1 {
   text-align: center;
   font-family: Lobster;
@@ -75,10 +102,6 @@ form {
 .card-img-top {
   height: 250px;
 }
-
-/* #campContainer {
-  color: white;
-} */
 
 li {
   color: rgb(184, 61, 61);
