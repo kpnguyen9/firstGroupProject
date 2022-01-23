@@ -38,14 +38,12 @@ const printParkName = (parks) => {
     const createDiv = document.createElement("div");
     createDiv.classList.add("card");
     createDiv.classList.add("parkCard");
-    createDiv.classList.add("col-sm")
-    // createDiv.style.width = "18rem";
-    // createDiv.style.height = "18rem";
+    createDiv.classList.add("col-sm-3");
     createDiv.innerHTML = parkCard;
     parkInfo.appendChild(createDiv);
 
     const scrollToParkCards = document.getElementById("parkInfo");
-    scrollToParkCards.scrollIntoView();
+    scrollToParkCards.scrollIntoView({ behavior: "smooth" });
   });
 };
 
@@ -72,6 +70,10 @@ submitButton.addEventListener("click", () => {
     .then(printParkName);
 
   parkInput.value = "";
+  const weatherContainer = document.getElementById("weatherContainer");
+  weatherContainer.innerHTML = "";
+  const campContainer = document.getElementById("campContainer");
+  campContainer.innerHTML = "";
 });
 
 const printCampsites = (camps) => {
@@ -99,13 +101,13 @@ const printCampsites = (camps) => {
 
     const createDiv = document.createElement("div");
     createDiv.classList.add("card");
-    createDiv.style.width = "50rem";
+    // createDiv.style.width = "50rem";
     createDiv.innerHTML = campCard;
 
     campContainer.appendChild(createDiv);
 
     const scrollToCampCards = document.getElementById("weatherContainer");
-    scrollToCampCards.scrollIntoView();
+    scrollToCampCards.scrollIntoView({ behavior: "smooth" });
   });
 };
 
@@ -121,7 +123,7 @@ const printCurrentWeather = (current) => {
   // console.log(newLink);
 
   let currentWeather = `
-<div class="card" style="width: 18rem;">
+<div class="card weatherCard" >
   <div class="card-header">
   <img src=${newLink} alt="conditionIcon"> ${current.condition.text}
   </div>
