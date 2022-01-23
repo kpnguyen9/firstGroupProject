@@ -47,9 +47,9 @@ img {
     text-align: center;
   }
 
-  .container-fluid {
+  /* .container-fluid {
     background-color: green;
-}
+} */
 
 body {
     background-image: url("images/campimage.jpg");
@@ -60,7 +60,7 @@ body {
     background-size: cover;
 }
 
-@media (max-width: 480px) {
+/* @media (max-width: 480px) {
     body {
         background-image: url("images/campimage.jpg")
     }
@@ -76,7 +76,7 @@ body {
     body {
         background-image: url("images/campimage.jpg")
     }
-}
+} */
 
 h1 {
     text-align: center;
@@ -87,6 +87,7 @@ h1 {
 .navbar-light .navbar-brand{
     color: white;
     font-weight: bold;
+    
 }
 
 h3 {
@@ -105,3 +106,12 @@ div.weather-div {
     height: 400px;
     border: 3px solid green;
 }
+
+.nav-link {
+    /* color: #1d6536; */
+    color: orange;
+    text-align: right;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: Lobster;
+  }
