@@ -94,4 +94,9 @@ div.weather-div {
 .weatherCard {
   position: sticky;
   top: 0;
+  margin-bottom: 15px;
+}
+
+.campCard {
+  margin-bottom: 15px;
 }
