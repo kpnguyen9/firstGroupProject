@@ -1,3 +1,8 @@
+body, 
+html {
+height: 100%;
+}
+
 img {
     border-radius: 100px;
 }
@@ -47,14 +52,18 @@ img {
     text-align: center;
   }
 
-  /* .container-fluid {
+  .container-fluid {
     background-color: green;
-} */
+}
 
 body {
-    background-image: url("images/campimage.jpg");
+    background-image: url("https://wallpaperaccess.com/full/5856.jpg");
     background-attachment: absolute;
-    background-position: center center;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-y: scroll;
+    background-position: center;
     background-repeat: no-repeat;
     background-color: #cccccc;
     background-size: cover;
