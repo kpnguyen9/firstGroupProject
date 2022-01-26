@@ -22,11 +22,12 @@
                 <a class="nav-link" href="/about-us.html">About Us</a>
               </nav>
 
-        <h3>Find the a campsite for your next adventure at the National Park of your choice here:</h3>
+        <h3>Find a campsite for your next adventure at the National Park of your choice:</h3>
         <div id="park-form">
             <form action="/action_page.php">
                 <input type="text" id="parkNameInput" placeholder="Enter park name" /><br /><br />
-                <button type="button" class="btn btn-secondary" id="submitButton"=>Go!</button>
+                <button type="button" class="btn btn-secondary" onclick="this.blur();" id="submitButton">Go!</button>
+                <button class="btn btn-secondary" type="button" onClick="window.location.reload();">Reset</button>
             </form>
         </div>
         <br />
