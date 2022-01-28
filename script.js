@@ -172,7 +172,7 @@ parkInfo.addEventListener("click", (event) => {
 
     let weatherCurrentURL = `http://api.weatherapi.com/v1/current.json?key=${weatherKey}&q=${latLong}&aqi=no`;
 
-    let weatherForecastURL = `http://api.weatherapi.com/v1/forecast.json?key=${weatherKey}&q=${latLong}&days=7&aqi=no&alerts=no`;
+    let weatherForecastURL = `https://api.weatherapi.com/v1/forecast.json?key=${weatherKey}&q=${latLong}&days=7&aqi=no&alerts=no`;
 
     // console.log(weatherCurrentURL);
     // console.log(weatherForecastURL);
