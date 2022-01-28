@@ -80,10 +80,25 @@ const printCampsites = (camps) => {
   const campContainer = document.getElementById("campContainer");
   campContainer.innerHTML = "";
 
-  camps.map((camp) => {
-    // console.log(camp.name);
+  if (camps.length === 0) {
+    let noCampCard = `
+    <div class="card-body">
+  <h5 class="card-title">This park does not have any campgrounds.</h5>
+</div>
+    `;
 
-    let campCard = `
+    const createDiv = document.createElement("div");
+    createDiv.classList.add("card");
+    createDiv.classList.add("campCard");
+    // createDiv.style.width = "50rem";
+    createDiv.innerHTML = noCampCard;
+
+    campContainer.appendChild(createDiv);
+  } else {
+    camps.map((camp) => {
+      console.log(camp.name);
+
+      let campCard = `
 <div class="card-body">
   <h5 class="card-title">${camp.name}</h5>
   <p class="card-text">${camp.description}</p>
@@ -99,14 +114,15 @@ const printCampsites = (camps) => {
 </ul>
 `;
 
-    const createDiv = document.createElement("div");
-    createDiv.classList.add("card");
-    createDiv.classList.add("campCard");
-    // createDiv.style.width = "50rem";
-    createDiv.innerHTML = campCard;
+      const createDiv = document.createElement("div");
+      createDiv.classList.add("card");
+      createDiv.classList.add("campCard");
+      // createDiv.style.width = "50rem";
+      createDiv.innerHTML = campCard;
 
-    campContainer.appendChild(createDiv);
-  });
+      campContainer.appendChild(createDiv);
+    });
+  }
   const scrollToCampCards = document.getElementById("weatherContainer");
   scrollToCampCards.scrollIntoView({ behavior: "smooth" });
 };
